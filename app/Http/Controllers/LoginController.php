@@ -11,7 +11,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        view()->share('title', 'Login');
+        return view('login.index');
     }
 
     /**
