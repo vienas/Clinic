@@ -20,3 +20,4 @@ Route::delete('/pacjent/usun/{id}', [PatientController::class, 'delete'])->name(
 Route::resource('zabiegi', ProcedureController::class);
 
 Route::get('/logowanie', [LoginController::class, 'index'])->name('login.index');
+Route::post('/logowanie', [LoginController::class, 'edit'])->name('login.edit');

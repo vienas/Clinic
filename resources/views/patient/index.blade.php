@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Contact Section-->
+
 <section class="page-section" id="contact">
     <div class="container">
 
@@ -17,9 +17,7 @@
         <div class="divider-custom-line"></div>
         <h2 class="masthead page-section-heading text-center text-uppercase text-secondary mb-0" style="padding-top: 5rem;">Lista pacjentów</h2>
 
-        <!-- @if ($klinika->isEmpty())
-            <p class="text-center">Brak pacjentów do wyświetlenia</p>
-        @else -->
+
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
@@ -52,7 +50,7 @@
                     @endforeach
                 </tbody>
             </table>
-        <!-- @endif -->
+
     </div>
 </section>
 @endsection
