@@ -40,7 +40,7 @@
                             <td>{{ $klinik->mail }}</td>
                             <td>{{ $klinik->doctor }}</td>
                             <td><a href="{{ route('patient.edit', ['id' => $klinik->id]) }}" class="btn btn-outline-light">Edytuj</a>
-                                    <form method="POST" action="{{ route('patient.delete', ['id' => $klinik->id]) }}">
+                            <form method="POST" action="{{ route('patient.delete', ['id' => $klinik->id]) }}">
                                 
                                 @csrf
                                 @method('delete')

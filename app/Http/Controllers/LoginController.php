@@ -11,7 +11,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('login.index');
+        // return view('login.index');
     }
 
     /**
@@ -43,7 +43,7 @@ class LoginController extends Controller
      */
     public function edit()
     {
-        return view('login.edit');
+        // return view('login.edit');
     }
 
     /**

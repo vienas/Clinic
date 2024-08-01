@@ -22,7 +22,7 @@ Route::delete('/pacjent/usun/{id}', [PatientController::class, 'delete'])->name(
 
 Route::resource('zabiegi', ProcedureController::class);
 
-Route::get('/logowanie', [LoginController::class, 'index'])->name('login.index');
+// Route::get('/login', [ProfileController::class, 'edit'])->name('auth.login');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
