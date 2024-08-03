@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PatientController extends Controller
+class ProcedureController extends Controller
+
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // return view('welcome');
+        return view('procedure.index');
     }
 
     /**

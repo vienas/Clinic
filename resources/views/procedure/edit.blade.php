@@ -27,9 +27,9 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input value="{{ $klinika->phone }}" class="form-control" id="phone" name="phone" type="number" placeholder="Nummer telefonu" />
-                        <label for="date">Nummer telefonu (opcjonalnie)</label>
-                        <div class="invalid-feedback" data-sb-feedback="phone">Nummer telefonu</div>
+                        <input value="{{ $klinika->phone }}" class="form-control" id="phone" name="phone" type="number" placeholder="Numer telefonu" />
+                        <label for="date">Numer telefonu (opcjonalnie)</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone">Numer telefonu</div>
                     </div>
 
                     <div class="form-floating mb-3">
