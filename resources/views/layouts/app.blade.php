@@ -73,7 +73,7 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Kontakt</h4>
                         <p class="lead mb-0">
-                            User
+                            <a href="mailto:klinika@gmail.com">klinika@gmail.com</a>
                             <br />
                             Gliwice, Poland
                         </p>
@@ -90,9 +90,7 @@
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">O projekcie</h4>
                         <p class="lead mb-0">
-                            Projekt Klinika został stworzony w celu testowania technologii Laravel, PHP, MySQL, Bootstrap, GitHub, Git, VS Code, VS Code Remote..
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
-                            .
+                            Projekt Klinika został stworzony w celu testowania technologii Laravel, PHP, MySQL, Bootstrap, GitHub, Git, VS Code, Docker..
                         </p>
                     </div>
                 </div>
@@ -100,7 +98,7 @@
         </footer>
         Copyright Section
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
+            <div class="container"><small>Copyright &copy; Your Website 2024</small></div>
         </div>
 
         <!-- Bootstrap core JS-->
