@@ -50,7 +50,7 @@
                     </div>
                     
                     <div class="form-floating mb-3">
-                        <input value="{{ $klinika->mail }}" class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30" required/>
+                        <input value="{{ $klinika->mail }}" class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30"/>
                         <label for="mail">Adres email</label>
                         <div class="invalid-feedback">
                             Wprowadź poprawny adres email.
