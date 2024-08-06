@@ -51,30 +51,28 @@
 
                     <div class="form-floating mb-3">
                         <input class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30" required/>
-                        <label for="mail">Adres email (opcjonalnie)</label>
+                        <label for="mail">Adres email</label>
                         <div class="invalid-feedback">
                             Wprowadź poprawny adres email.
                         </div>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <select class="form-control" id="doctor" name="doctor" placeholder="doctor" required >
+                        <select class="form-control" id="doctor" name="doctor" placeholder="doctor" required>
                             <option value="" disabled selected></option>
                             <option value="lek. Tadeusz Asnyk">lek. Tadeusz Asnyk</option>
                             <option value="lek. Anna Zawada">lek. Anna Zawada</option>
                             <option value="lek. Janusz Szwed">lek. Janusz Szwed</option>
                             <option value="lek. Krzysztof Wiecek">lek. Krzysztof Wiecek</option>
                         </select>
-                        
                         <label for="doctor">Wybór Lekarza</label>
-                        </div>
-                        
-                        <div id="success"></div>
-                        <div class="form-group">
+                    </div>
+
+                    <div id="success"></div>
+                    <div class="form-group">
                         <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Wyślij formularz</button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
