@@ -36,7 +36,7 @@
                         <input value="{{ $klinika->mail }}" class="form-control" id="mail" name="mail" type="text" placeholder="Adres Email"  />
                         <label for="mail">Adres Email (opcjonalnie)</label>
                         <div class="invalid-feedback" data-sb-feedback="mail:required">An email is required.</div>
-                        <!-- <div class="invalid-feedback" data-sb-feedback="mail:mail">Email is not valid.</div> -->
+
                     
                     <div class="form-floating mb-3">
                         <select value="{{ $klinika->doctor }}" class="form-control" id="doctor" name="doctor" placeholder="doctor" data-sb-validations="required" >
