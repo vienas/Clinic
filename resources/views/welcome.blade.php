@@ -93,7 +93,7 @@
                                             <h2 class="text-xl font-semibold text-black dark:text-white">Documentation</h2>
 
                                             <p class="mt-4 text-sm/relaxed">
-                                                Cyganeria w polsce - dokument.
+                                                dokument.
                                             </p>
                                         </div>
                                     </div>
