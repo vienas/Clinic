@@ -22,7 +22,6 @@ Route::delete('/pacjent/usun/{id}', [PatientController::class, 'delete'])->name(
 
 Route::get('/zabiegi', [ProcedureController::class, 'index'])->name('procedure.index');
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
