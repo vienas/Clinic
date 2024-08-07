@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Validator;
+
 
 class RegisteredUserController extends Controller
 {
@@ -45,6 +47,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('/', absolute: false));
+        return redirect(route('profile.edit', absolute: false));
     }
 }

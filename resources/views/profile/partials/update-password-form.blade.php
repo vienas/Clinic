@@ -1,57 +1,51 @@
 <section>
     <header>
-        <h2 class="h5 font-weight-bold text-dark">
+        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Zmiana hasła') }}
         </h2>
 
-        <p class="mt-1 text-muted">
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             {{ __('Upewnij się, że konto użytkownika używa długiego, losowego hasła, aby zachować bezpieczeństwo.') }}
         </p>
     </header>
 
-    <form method="post" action="{{ route('password.update') }}" class="mt-4">
+    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6" onsubmit="return checkPasswordMatch();">
         @csrf
         @method('put')
 
-        <div class="mb-3">
-            <label for="update_password_current_password" class="form-label">{{ __('Aktualne hasło') }}</label>
-            <input id="update_password_current_password" name="current_password" type="password" class="form-control @error('updatePassword.current_password') is-invalid @enderror" autocomplete="current-password">
-            @error('updatePassword.current_password')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
+        <div>
+            <x-input-label for="update_password_current_password" :value="__('Aktualne hasło')" />
+            <x-text-input id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
+            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2"/>
         </div>
 
-        <div class="mb-3">
-            <label for="update_password_password" class="form-label">{{ __('Nowe hasło') }}</label>
-            <input id="update_password_password" name="password" type="password" class="form-control @error('updatePassword.password') is-invalid @enderror" autocomplete="new-password">
-            @error('updatePassword.password')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
+        <div>
+            <x-input-label for="update_password_password" :value="__('Nowe hasło')" />
+            <x-text-input id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
         </div>
 
-        <div class="mb-3">
-            <label for="update_password_password_confirmation" class="form-label">{{ __('Potwierdź hasło') }}</label>
-            <input id="update_password_password_confirmation" name="password_confirmation" type="password" class="form-control @error('updatePassword.password_confirmation') is-invalid @enderror" autocomplete="new-password">
-            @error('updatePassword.password_confirmation')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
+        <div>
+            <x-input-label for="update_password_password_confirmation" :value="__('Potwierdź hasło')" />
+            <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+            <div class="invalid-feedback" id="password-match-error" style="display: none; color: red;">
+                {{ __('Hasła muszą być takie same.') }}
+            </div>
         </div>
 
-        <div class="d-flex align-items-center gap-4">
-            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+        <div class="flex items-center gap-4">
+        <button type="submit" class="btn btn-primary">
+                {{ __('Zapisz') }}</button>
 
-            @if (session('status') === 'password-updated')
-                <p class="text-sm text-gray-600" id="password-updated-message">{{ __('Saved.') }}</p>
+            @if (session('status') === 'profile-updated')
+                <p class="text-sm text-gray-600 dark:text-gray-400" id="profile-updated-message">
+                    {{ __('Zapisano.') }}
+                </p>
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         setTimeout(function() {
-                            document.getElementById('password-updated-message').style.display = 'none';
+                            document.getElementById('profile-updated-message').style.display = 'none';
                         }, 2000);
                     });
                 </script>
@@ -60,3 +54,18 @@
     </form>
 </section>
 
+<script>
+    function checkPasswordMatch() {
+        const password = document.getElementById('update_password_password').value;
+        const confirmPassword = document.getElementById('update_password_password_confirmation').value;
+        const errorDiv = document.getElementById('password-match-error');
+
+        if (password !== confirmPassword) {
+            errorDiv.style.display = 'block';
+            return false;
+        }
+
+        errorDiv.style.display = 'none';
+        return true;
+    }
+</script>

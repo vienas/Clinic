@@ -5,7 +5,16 @@
 <!-- Contact Section-->
 <section class="page-section" id="contact">
     <div class="container">
-        <!-- Contact Section Heading-->
+
+        @if (session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session()->get('message') }}
+            <button type="button" class="btn-close text-success" data-bs-dismiss="alert" aria-label="close">
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+        @endif
+
         <h2 class="masthead page-section-heading text-center text-uppercase text-secondary mb-0" style="padding-top: 5rem;">E-rejestracja</h2>
 
         <!-- Contact Section Form-->
@@ -39,7 +48,6 @@
                         });
                     });
                     </script>
-
 
                     <div class="form-floating mb-3">
                         <input class="form-control" id="phone" name="phone" type="tel" placeholder="Numer telefonu" minlength="9" maxlength="9" pattern="\d{9}" required />

@@ -56,7 +56,7 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+            <button type="submit" class="btn btn-primary">{{ __('Zapisz') }}</button>
 
             @if (session('status') === 'profile-updated')
                 <p class="text-sm text-gray-600 dark:text-gray-400" id="profile-updated-message">

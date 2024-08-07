@@ -2,10 +2,10 @@
 
 @section('content')
 <!-- Portfolio Section-->
-<section class="page-section portfolio" id="portfolio">
-    <div class="container">
+<section class="masthead page-section portfolio" id="portfolio">
+    <div class="container" >
         <!-- Portfolio Section Heading-->
-        <h2 class="masthead page-section-heading text-center text-uppercase text-secondary mb-0">Lista zabiegów</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-9">Lista zabiegów</h2>
         <!-- Portfolio Grid Items-->
         <div class="row justify-content-center">
             <!-- Portfolio Item 1-->
@@ -13,7 +13,8 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            BARK
+                        <span class="badge bg-primary rounded-pill">BARK</span>
+
                         </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -29,7 +30,8 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            KOLANO
+
+                            <span class="badge bg-primary rounded-pill">KOLANO</span>
                         </button>
                     </h2>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -45,7 +47,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            BIODRO
+                            <span class="badge bg-primary rounded-pill">BIODRO</span>
                         </button>
                     </h2>
                     <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -61,7 +63,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                            RĘKA
+                            <span class="badge bg-primary rounded-pill">RĘKA</span>
                         </button>
                     </h2>
                     <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
