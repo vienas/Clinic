@@ -31,26 +31,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($klinika as $klinik)
+                    @foreach ($clinic as $clinical)
                         <tr>
-                            <th scope="row">{{ $klinik->id }}</th>
-                            <td>{{ $klinik->name }}</td>
-                            <td>{{ \Carbon\Carbon::parse($klinik->date)->format('d-m-Y') }}</td>
-                            <td>{{ $klinik->phone }}</td>
-                            <td>{{ $klinik->mail }}</td>
-                            <td>{{ $klinik->doctor }}</td>
-                            <td><a href="{{ route('patient.edit', ['id' => $klinik->id]) }}" class="btn btn-outline-light">Edytuj</a>
-                            <form method="POST" action="{{ route('patient.delete', ['id' => $klinik->id]) }}">
+                            <th scope="row">{{ $clinical->id }}</th>
+                            <td>{{ $clinical->name }}</td>
+                            <td>{{ \Carbon\Carbon::parse($clinical->date)->format('d-m-Y') }}</td>
+                            <td>{{ $clinical->phone }}</td>
+                            <td>{{ $clinical->mail }}</td>
+                            <td>{{ $clinical->doctor }}</td>
+                            <td><a href="{{ route('patient.edit', ['id' => $clinical->id]) }}" class="btn btn-outline-light">Edytuj</a>
+                            <form method="POST" action="{{ route('patient.delete', ['id' => $clinical->id]) }}">
                                 
-                                @csrf
-                                @method('delete')
+                            @csrf
+                            
+                            @method('delete')
                             <button type="submit" class="btn btn-danger">Usuń</a></td>
                             </form></td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-
     </div>
 </section>
 @endsection

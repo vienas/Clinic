@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Klinika;
+use App\Models\Clinic;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -10,55 +10,64 @@ class PatientController extends Controller
     public function index()
     {
 
-        $klinika = Klinika::all();
-        return view('patient.index', ['klinika' => $klinika ]);
+        $clinic = Clinic::all();
+        return view('patient.index', ['clinic' => $clinic ]);
     }
     
-    public function dodaj()
+    public function create()
     {
         return view('patient.create');
     }
 
     public function edit($id)
     {
-        $klinika = Klinika::find($id);
-        return view('patient.edit', ['klinika' => $klinika ]);
+        $clinic = Clinic::find($id);
+        return view('patient.edit', ['clinic' => $clinic ]);
     }
 
     public function store(Request $request)
     {
-        $klinika = new Klinika();
-        
-        $klinika->name = $request->name;
-        $klinika->date = $request->date;
-        $klinika->phone = $request->phone;
-        $klinika->mail = $request->mail;
-        $klinika->doctor = $request->doctor;
 
-        $klinika->save();
-
-        return redirect()->route('patient.index')->with('message', 'Rejestracja pacjenta wykonana poprawnie');
-        
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'date' => 'required|date',
+            'phone' => 'required|string|max:255',
+            'mail' => 'nullable|string|max:255',
+            'doctor' => 'required|string|max:255',
+        ]);
+    
+        $clinic = new Clinic();
+    
+        $clinic->name = $validatedData['name'];
+        $clinic->date = $validatedData['date'];
+        $clinic->phone = $validatedData['phone'];
+        $clinic->mail = $validatedData['mail'];
+        $clinic->doctor = $validatedData['doctor'];
+    
+        $clinic->save();
+    
+        return redirect()->route('patient.create')->with('message', 'Zarejestrowano, dziękujemy!');
     }
+    
 
     public function update($id, Request $request)
     {
-        $klinika = Klinika::find($id);
+        $clinic = Clinic::find($id);
         
-        $klinika->name = $request->name;
-        $klinika->date = $request->date;
-        $klinika->phone = $request->phone;
-        $klinika->mail = $request->mail;
-        $klinika->doctor = $request->doctor;
+        $clinic->name = $request->name;
+        $clinic->date = $request->date;
+        $clinic->phone = $request->phone;
+        $clinic->mail = $request->mail;
+        $clinic->doctor = $request->doctor;
 
-        $klinika->save();
+        $clinic->save();
 
         return redirect()->route('patient.index')->with('message', 'Zmiany zostały zapisane');
     }
 
     public function delete($id)
     {
-        klinika::destroy($id);
+        Clinic::destroy($id);
 
         return redirect()->route('patient.index')->with('message', 'Poprawnie usunięto z bazy');
     }

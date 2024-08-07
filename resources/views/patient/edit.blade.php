@@ -6,22 +6,22 @@
 <section class="page-section" id="contact">
     <div class="container">
 
-        <h2 class="masthead page-section-heading text-center text-uppercase text-secondary mb-0" style="padding-top: 5rem;">Edytujesz pacjenta {{ $klinika->name }}</h2>
+        <h2 class="masthead page-section-heading text-center text-uppercase text-secondary mb-0" style="padding-top: 5rem;">Edytujesz pacjenta {{ $clinic->name }}</h2>
 
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
-                <form action="{{ route('patient.update', ['id' => $klinika->id]) }}" method="POST" id="contactForm" name="sentMessage" >
+                <form action="{{ route('patient.update', ['id' => $clinic->id]) }}" method="POST" id="contactForm" name="sentMessage" >
                     {{ csrf_field() }}
                     
                     @method('PUT')
 
                     <div class="form-floating mb-3">
-                        <input value="{{ $klinika->name }}" class="form-control" id="name" name="name" type="text" placeholder="Imię i Nazwisko" maxlength="30" required />
+                        <input value="{{ $clinic->name }}" class="form-control" id="name" name="name" type="text" placeholder="Imię i Nazwisko" maxlength="30" required />
                         <label for="number">Imię i Nazwisko</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input value="{{ $klinika->date }}" class="form-control" id="date" name="date" type="text" placeholder="Data wizyty" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
+                        <input value="{{ $clinic->date }}" class="form-control" id="date" name="date" type="text" placeholder="Data wizyty" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
                         <label for="date">Data wizyty</label>
                         <div class="invalid-feedback">
                             Wprowadź poprawną datę wizyty.
@@ -42,7 +42,7 @@
                     </script>
 
                     <div class="form-floating mb-3">
-                        <input value="{{ $klinika->phone }}" class="form-control" id="phone" name="phone" type="tel" placeholder="Numer telefonu" minlength="9" maxlength="9" pattern="\d{9}" required />
+                        <input value="{{ $clinic->phone }}" class="form-control" id="phone" name="phone" type="tel" placeholder="Numer telefonu" minlength="9" maxlength="9" pattern="\d{9}" required />
                         <label for="phone">Numer telefonu</label>
                         <div class="invalid-feedback">
                             Wprowadź poprawny numer telefonu.
@@ -50,7 +50,7 @@
                     </div>
                     
                     <div class="form-floating mb-3">
-                        <input value="{{ $klinika->mail }}" class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30"/>
+                        <input value="{{ $clinic->mail }}" class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30"/>
                         <label for="mail">Adres email</label>
                         <div class="invalid-feedback">
                             Wprowadź poprawny adres email.
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <select value="{{ $klinika->doctor }}" class="form-control" id="doctor" name="doctor" placeholder="doctor" required>
+                        <select value="{{ $clinic->doctor }}" class="form-control" id="doctor" name="doctor" placeholder="doctor" required>
                             <option value="" disabled selected></option>
                             <option value="lek. Tadeusz Asnyk">lek. Tadeusz Asnyk</option>
                             <option value="lek. Anna Zawada">lek. Anna Zawada</option>
