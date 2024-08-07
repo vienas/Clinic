@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Profile Information') }}
+            {{ __('Informacje o profilu') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Zaktualizuj informacje o profilu i adres e-mail.") }}
         </p>
     </header>
 
@@ -17,23 +17,31 @@
         @csrf
         @method('patch')
 
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        <div class="mb-3">
+            <label for="name" class="form-label">{{ __('Name') }}</label>
+            <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
+            @error('name')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
 
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+        <div class="mb-3">
+            <label for="email" class="form-label">{{ __('Email') }}</label>
+            <input id="email" name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}" required autocomplete="username">
+            @error('email')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                <div>
-                    <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
+                <div class="mt-3">
+                    <p class="text-sm text-gray-800 dark:text-gray-200">
                         {{ __('Your email address is unverified.') }}
 
-                        <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                        <button form="send-verification" class="btn btn-link p-0 m-0 align-baseline">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
@@ -47,18 +55,25 @@
             @endif
         </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <div class="d-flex align-items-center gap-4">
+            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
 
             @if (session('status') === 'profile-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-400"
-                >{{ __('Saved.') }}</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400" id="profile-updated-message">
+                    {{ __('Zapisano.') }}
+                </p>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        setTimeout(function() {
+                            document.getElementById('profile-updated-message').style.display = 'none';
+                        }, 2000);
+                    });
+                </script>
             @endif
         </div>
     </form>
 </section>
+
+<!-- Include Bootstrap JS for modal functionality -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybO7zQAmCt1yY59Y31OG8RfvtWIs6jz5Q3Ukl4kg+eZr1EcUc" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Q6wdfY6GogH4T+KQj+zDQGmPjtILj5OGCUj7zz5of2i8r8LZcAz4+D4V2Ag/zaXR" crossorigin="anonymous"></script>
