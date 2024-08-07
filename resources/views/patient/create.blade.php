@@ -31,9 +31,7 @@
                     <div class="form-floating mb-3">
                         <input class="form-control" id="date" name="date" type="text" placeholder="Data wizyty" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
                         <label for="date">Data wizyty</label>
-                        <div class="invalid-feedback">
-                            Wprowadź poprawną datę wizyty.
-                        </div>
+
                     </div>
 
                     <!-- jQuery UI Datepicker -->

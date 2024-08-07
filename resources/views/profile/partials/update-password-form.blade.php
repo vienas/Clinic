@@ -35,21 +35,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-        <button type="submit" class="btn btn-primary">
-                {{ __('Zapisz') }}</button>
-
-            @if (session('status') === 'profile-updated')
-                <p class="text-sm text-gray-600 dark:text-gray-400" id="profile-updated-message">
-                    {{ __('Zapisano.') }}
-                </p>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        setTimeout(function() {
-                            document.getElementById('profile-updated-message').style.display = 'none';
-                        }, 2000);
-                    });
-                </script>
-            @endif
+        <button type="submit" class="btn btn-primary">{{ __('Zapisz') }}</button>
         </div>
     </form>
 </section>

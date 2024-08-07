@@ -21,7 +21,7 @@ class PatientController extends Controller
 
     public function edit($id)
     {
-        $clinic = Clinic::find($id);
+        $clinic = Clinic::findOrFail($id);
         return view('patient.edit', ['clinic' => $clinic ]);
     }
 
@@ -29,10 +29,10 @@ class PatientController extends Controller
     {
 
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:30',
             'date' => 'required|date',
             'phone' => 'required|string|min:9|max:9',
-            'mail' => 'nullable|string|max:255',
+            'mail' => 'nullable|email|max:255',
             'doctor' => 'required|string|max:255',
         ]);
     
@@ -52,18 +52,19 @@ class PatientController extends Controller
 
     public function update($id, Request $request)
     {
-        $clinic = Clinic::find($id);
+        $clinic = Clinic::findOrFail($id);
         
         $clinic->name = $request->name;
         $clinic->date = $request->date;
         $clinic->phone = $request->phone;
         $clinic->mail = $request->mail;
         $clinic->doctor = $request->doctor;
-
+    
         $clinic->save();
-
+    
         return redirect()->route('patient.index')->with('message', 'Zmiany zostały zapisane');
     }
+    
 
     public function delete($id)
     {
