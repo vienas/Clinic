@@ -46,20 +46,18 @@
                     <div class="form-floating mb-3">
                         <input class="form-control" id="phone" name="phone" type="tel" placeholder="Numer telefonu" minlength="9" maxlength="9" pattern="\d{9}" required />
                         <label for="phone">Numer telefonu</label>
- 
                     </div>
 
                     <div class="form-floating mb-3">
                         <input class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30" />
                         <label for="mail">Adres email (opcjonalnie)</label>
-
                     </div>
                     
                     <div class="form-floating mb-3 position-relative">
                         <input class="form-control" id="doctor-input" name="doctor" type="text" placeholder="Wybór lekarza" required />
                         <label for="doctor-input">Wybór lekarza</label>
                         <select name="doctor" id="doctor-select" class="form-select position-absolute top-0 start-0 w-100 h-100 opacity-0" onchange="updateInput()" required>
-                            <option disabled selected></option>
+                            <option disabled></option>
                             @foreach($users as $user)
                                 <option value="{{ $user->name }}">{{ $user->name }}</option>
                             @endforeach
