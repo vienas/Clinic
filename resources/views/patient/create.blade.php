@@ -28,9 +28,7 @@
                     <div class="form-floating mb-3">
                         <input class="form-control" id="date" name="date" type="text" placeholder="Data wizyty" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
                         <label for="date">Data wizyty</label>
-                        <div class="invalid-feedback">
-                            Wprowadź poprawną datę wizyty.
-                        </div>
+
                     </div>
 
                     <script>
@@ -48,17 +46,13 @@
                     <div class="form-floating mb-3">
                         <input class="form-control" id="phone" name="phone" type="tel" placeholder="Numer telefonu" minlength="9" maxlength="9" pattern="\d{9}" required />
                         <label for="phone">Numer telefonu</label>
-                        <div class="invalid-feedback">
-                            Wprowadź poprawny numer telefonu.
-                        </div>
+ 
                     </div>
 
                     <div class="form-floating mb-3">
                         <input class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30" />
                         <label for="mail">Adres email (opcjonalnie)</label>
-                        <div class="invalid-feedback">
-                            Wprowadź poprawny adres email.
-                        </div>
+
                     </div>
                     
                     <div class="form-floating mb-3 position-relative">

@@ -10,8 +10,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
                 <form action="{{ route('patient.update', ['id' => $clinic->id]) }}" method="POST" id="contactForm" name="sentMessage" >
-                    @csrf
                     
+                    @csrf
                     @method('PUT')
 
                     <div class="form-floating mb-3">
