@@ -2,7 +2,6 @@
 
 @section('content')
 
-<!-- Contact Section-->
 <section class="page-section" id="contact">
     <div class="container">
 
@@ -16,13 +15,11 @@
         @endif
 
         <h2 class="masthead page-section-heading text-center text-uppercase text-secondary mb-0" style="padding-top: 5rem;">E-rejestracja</h2>
-
-        <!-- Contact Section Form-->
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
                 <form action="{{ route('patient.store') }}" method="POST" >
-                    {{ csrf_field() }}
 
+                    @csrf
                     <div class="form-floating mb-3">
                         <input class="form-control" id="name" name="name" type="text" placeholder="Imię i Nazwisko" maxlength="30" required />
                         <label for="number">Imię i Nazwisko</label>
@@ -31,10 +28,11 @@
                     <div class="form-floating mb-3">
                         <input class="form-control" id="date" name="date" type="text" placeholder="Data wizyty" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
                         <label for="date">Data wizyty</label>
-
+                        <div class="invalid-feedback">
+                            Wprowadź poprawną datę wizyty.
+                        </div>
                     </div>
 
-                    <!-- jQuery UI Datepicker -->
                     <script>
                     $(function() {
                         $("#date").datepicker({
@@ -62,17 +60,25 @@
                             Wprowadź poprawny adres email.
                         </div>
                     </div>
-
-                    <div class="form-floating mb-3">
-                        <select class="form-control" id="doctor" name="doctor" placeholder="doctor" required>
-                            <option value="" disabled selected></option>
-                            <option value="lek. Tadeusz Asnyk">lek. Tadeusz Asnyk</option>
-                            <option value="lek. Anna Zawada">lek. Anna Zawada</option>
-                            <option value="lek. Janusz Szwed">lek. Janusz Szwed</option>
-                            <option value="lek. Krzysztof Wiecek">lek. Krzysztof Wiecek</option>
+                    
+                    <div class="form-floating mb-3 position-relative">
+                        <input class="form-control" id="doctor-input" name="doctor" type="text" placeholder="Wybór lekarza" required />
+                        <label for="doctor-input">Wybór lekarza</label>
+                        <select name="doctor" id="doctor-select" class="form-select position-absolute top-0 start-0 w-100 h-100 opacity-0" onchange="updateInput()" required>
+                            <option disabled selected></option>
+                            @foreach($users as $user)
+                                <option value="{{ $user->name }}">{{ $user->name }}</option>
+                            @endforeach
                         </select>
-                        <label for="doctor">Wybór Lekarza</label>
                     </div>
+
+                    <script>
+                        function updateInput() {
+                            var select = document.getElementById('doctor-select');
+                            var input = document.getElementById('doctor-input');
+                            input.value = select.options[select.selectedIndex].text;
+                        }
+                    </script>
 
                     <div id="success"></div>
                     <div class="form-group">
@@ -83,7 +89,5 @@
         </div>
     </div>
 </section>
-
-
 
 @endsection

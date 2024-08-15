@@ -3,31 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clinic;
+use App\Models\User;
 use Illuminate\Http\Request;
+
 
 class PatientController extends Controller
 {
     public function index()
     {
-
         $clinic = Clinic::all();
         return view('patient.index', ['clinic' => $clinic ]);
     }
     
     public function create()
     {
-        return view('patient.create');
+        $users = User::all();
+        return view('patient.create', ['users' => $users]);
     }
 
-    public function edit($id)
+    public function edit(int $id)
     {
+        $users = User::all();
         $clinic = Clinic::findOrFail($id);
-        return view('patient.edit', ['clinic' => $clinic ]);
+        return view('patient.edit', ['clinic' => $clinic, 'users' => $users]);
     }
 
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'name' => 'required|string|max:30',
             'date' => 'required|date',
@@ -47,10 +49,11 @@ class PatientController extends Controller
         $clinic->save();
     
         return redirect()->route('patient.create')->with('message', 'Twoja wizyta została zarejestrowana, dziękujemy!');
+
     }
     
 
-    public function update($id, Request $request)
+    public function update(int $id, Request $request)
     {
         $clinic = Clinic::findOrFail($id);
         
@@ -66,7 +69,7 @@ class PatientController extends Controller
     }
     
 
-    public function delete($id)
+    public function delete(int $id)
     {
         Clinic::destroy($id);
 

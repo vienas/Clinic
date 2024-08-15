@@ -2,7 +2,6 @@
 
 @section('content')
 
-<!-- Contact Section-->
 <section class="page-section" id="contact">
     <div class="container">
 
@@ -11,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
                 <form action="{{ route('patient.update', ['id' => $clinic->id]) }}" method="POST" id="contactForm" name="sentMessage" >
-                    {{ csrf_field() }}
+                    @csrf
                     
                     @method('PUT')
 
@@ -28,7 +27,6 @@
                         </div>
                     </div>
 
-                    <!-- jQuery UI Datepicker -->
                     <script>
                     $(function() {
                         $("#date").datepicker({
@@ -57,16 +55,33 @@
                         </div>
                     </div>
 
-                    <div class="form-floating mb-3">
-                        <select value="{{ $clinic->doctor }}" class="form-control" id="doctor" name="doctor" placeholder="doctor" required>
-                            <option value="" disabled selected></option>
-                            <option value="lek. Tadeusz Asnyk">lek. Tadeusz Asnyk</option>
-                            <option value="lek. Anna Zawada">lek. Anna Zawada</option>
-                            <option value="lek. Janusz Szwed">lek. Janusz Szwed</option>
-                            <option value="lek. Krzysztof Wiecek">lek. Krzysztof Wiecek</option>
+                    <div class="form-floating mb-3 position-relative">
+                        <input class="form-control" id="doctor-input" name="doctor" type="text" placeholder="Wybór lekarza" value="{{ $clinic->doctor }}" required />
+                        <label for="doctor-input">Wybór lekarza</label>
+                        <select name="doctor" id="doctor-select" class="form-select position-absolute top-0 start-0 w-100 h-100 opacity-0" onchange="updateInput()" required>
+                            <option disabled></option>
+                            @foreach($users as $user)
+                                <option value="{{ $user->name }}" {{ $clinic->doctor == $user->name ? 'selected' : '' }}>{{ $user->name }}</option>
+                            @endforeach
                         </select>
-                        <label for="doctor">Wybór Lekarza</label>
                     </div>
+                    
+                    <script>
+                        function updateInput() {
+                            var select = document.getElementById('doctor-select');
+                            var input = document.getElementById('doctor-input');
+                            input.value = select.options[select.selectedIndex].text;
+                        }
+                    
+                        document.addEventListener('DOMContentLoaded', function() {
+                            var select = document.getElementById('doctor-select');
+                            if (select.value) {
+                                var input = document.getElementById('doctor-input');
+                                input.value = select.options[select.selectedIndex].text;
+                            }
+                        });
+                    </script>
+                    
 
                     <div id="success"></div>
                     <div class="form-group">

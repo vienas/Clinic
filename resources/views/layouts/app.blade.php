@@ -35,13 +35,13 @@
                         
                         @auth
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('patient.index') }}">Lista Pacjentów</a></li>
-                        <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Witaj, {{ Auth::user()->name }}
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Edytuj profil</a></li>
-                            <li><a class="dropdown-item" href="{{ route('logout') }}">Wyloguj</a></li>
+                        <div class="dropdown" style="margin-left: 2rem; border-radius: 0.5rem; margin-top: 8px; color: #2cc4a4">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #2cc4a4; text-transform: uppercase;">
+                                WITAJ, {{ Auth::user()->name }}
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Edytuj profil</a></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}">Wyloguj</a></li>
                         </ul>
                         </div>
                         @endauth

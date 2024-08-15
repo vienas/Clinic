@@ -1,23 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Portfolio Section-->
-<section class="masthead page-section portfolio" id="portfolio">
-    <div class="container" >
-        <!-- Portfolio Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-9">Lista zabiegów</h2>
-        <!-- Portfolio Grid Items-->
-        <div class="row justify-content-center">
-            <!-- Portfolio Item 1-->
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        <span class="badge bg-primary rounded-pill">BARK</span>
 
+<section class="page-section portfolio" id="portfolio">
+    <div class="container mb-2">
+        <h2 class="masthead page-section-heading text-center text-uppercase text-secondary mb-0" style="padding-top: 5rem;">Lista zabiegów</h2>
+        <div class="row justify-content-center">
+
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                <div class="accordion-item mb-2">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <span class="badge bg-primary rounded-pill">BARK</span>
                         </button>
                     </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul>
                                 <li>Rekonstrukcja ścięgna głowy długiej bicepsa</li>
@@ -27,14 +25,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
+                
+                <div class="accordion-item mb-2">
+                    <h2 class="accordion-header" id="flush-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-
                             <span class="badge bg-primary rounded-pill">KOLANO</span>
                         </button>
                     </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul>
                                 <li>Przeszczep łąkotki allogenicznej (od dawcy)</li>
@@ -44,13 +42,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
+                
+                <div class="accordion-item mb-2">
+                    <h2 class="accordion-header" id="flush-headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                             <span class="badge bg-primary rounded-pill">BIODRO</span>
                         </button>
                     </h2>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul>
                                 <li>Leczenie martwicy głowy kości udowej</li>
@@ -60,13 +59,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
+                
+                <!-- Accordion Item 4 -->
+                <div class="accordion-item mb-2">
+                    <h2 class="accordion-header" id="flush-headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                             <span class="badge bg-primary rounded-pill">RĘKA</span>
                         </button>
                     </h2>
-                    <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul>
                                 <li>Leczenie zespołu cieśni nadgarstka</li>

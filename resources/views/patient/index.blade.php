@@ -32,23 +32,29 @@
                 </thead>
                 <tbody>
                     @foreach ($clinic as $clinical)
-                        <tr>
-                            <th scope="row">{{ $clinical->id }}</th>
-                            <td>{{ $clinical->name }}</td>
-                            <td>{{ \Carbon\Carbon::parse($clinical->date)->format('d-m-Y') }}</td>
-                            <td>{{ $clinical->phone }}</td>
-                            <td>{{ $clinical->mail }}</td>
-                            <td>{{ $clinical->doctor }}</td>
-                            <td><a href="{{ route('patient.edit', ['id' => $clinical->id]) }}" class="btn btn-outline-light">Edytuj</a>
-                            <form method="POST" action="{{ route('patient.delete', ['id' => $clinical->id]) }}">
-                                
-                            @csrf
-                            
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger">Usuń</a></td>
-                            </form></td>
-                        </tr>
-                    @endforeach
+                    <tr>
+                        <th scope="row">{{ $clinical->id }}</th>
+                        <td>{{ $clinical->name }}</td>
+                        <td>{{ \Carbon\Carbon::parse($clinical->date)->format('d-m-Y') }}</td>
+                        <td>{{ $clinical->phone }}</td>
+                        <td>{{ $clinical->mail }}</td>
+                        <td>{{ $clinical->doctor }}</td>
+                        <td>
+                            <div class="d-inline-flex">
+
+                                <a href="{{ route('patient.edit', ['id' => $clinical->id]) }}" class="btn btn-outline-light me-2">Edytuj</a>
+                
+
+                                <form method="POST" action="{{ route('patient.delete', ['id' => $clinical->id]) }}">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">Usuń</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                
                 </tbody>
             </table>
     </div>
