@@ -49,7 +49,6 @@ class PatientController extends Controller
         $clinic->save();
     
         return redirect()->route('patient.create')->with('message', 'Twoja wizyta została zarejestrowana, dziękujemy!');
-
     }
     
 
