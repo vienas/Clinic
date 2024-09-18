@@ -13,12 +13,12 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
         <div class="mb-3">
-            <label for="name" class="form-label">{{ __('Name') }}</label>
+            <label for="name" class="form-label">{{ __('Imię i nazwisko') }}</label>
             <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
             @error('name')
                 <div class="invalid-feedback">
@@ -29,7 +29,7 @@
 
         <div class="mb-3">
             <label for="email" class="form-label">{{ __('Email') }}</label>
-            <input id="email" name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}" required autocomplete="username">
+            <input id="email" name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}" required autocomplete="email">
             @error('email')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -55,12 +55,30 @@
             @endif
         </div>
 
+        <div class="mb-3">
+            <label for="image" class="form-label">{{ __('Zdjęcie') }}</label>
+    
+            <input id="image" name="image" type="file" class="form-control @error('image') is-invalid @enderror" autofocus>
+            @error('image')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            @if($user->image)
+            <div class="mb-2" style="text-align: center; margin-top: 1rem;">
+                <img src="{{ asset('storage/pictures/' . $user->image) }}" alt="image" style="max-width: 150px; height: auto;" class="img-thumbnail">
+            </div>
+            @endif
+
+        </div>
+
         <div class="d-flex align-items-center gap-4">
             <button type="submit" class="btn btn-primary">{{ __('Zapisz') }}</button>
         </div>
     </form>
 </section>
 
-<!-- Include Bootstrap JS for modal functionality -->
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybO7zQAmCt1yY59Y31OG8RfvtWIs6jz5Q3Ukl4kg+eZr1EcUc" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Q6wdfY6GogH4T+KQj+zDQGmPjtILj5OGCUj7zz5of2i8r8LZcAz4+D4V2Ag/zaXR" crossorigin="anonymous"></script>

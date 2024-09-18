@@ -42,11 +42,25 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Edytuj profil</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}">Wyloguj</a></li>
-                        </ul>
+                            </ul>
                         </div>
                         @endauth
                         
                         @guest
+                        {{-- <div class="dropdown" style="margin-left: 2rem; border-radius: 0.5rem; margin-top: 8px; color: #2cc4a4">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #2cc4a4; text-transform: uppercase;">
+                                Kadra medyczna
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('procedure.index') }}">Ortopedzi</a></li>
+                                <li><a class="dropdown-item" href="{{ route('procedure.index') }}">Neurochirurdzy</a></li>
+                                <li><a class="dropdown-item" href="{{ route('procedure.index') }}">Chirurdzy</a></li>
+                                <li><a class="dropdown-item" href="{{ route('procedure.index') }}">Anestezjolodzy</a></li>
+                                <li><a class="dropdown-item" href="{{ route('procedure.index') }}">Pielęgniarki oddziałowe</a></li>
+                                <li><a class="dropdown-item" href="{{ route('procedure.index') }}">Fizjoterapeuci</a></li>
+                            </ul>
+                        </div> --}}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('team.index') }}">Kadra medyczna</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('procedure.index') }}">Lista Zabiegów</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('patient.create') }}">E-rejestracja</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('login') }}" style="color: lightgreen;">Zaloguj</a></li>
