@@ -61,7 +61,7 @@
                         grid-column: 1 / span 4;
                         grid-row: 1;
                         display: flex;
-                        margin-left: 29%;
+                        margin-left: 28%;
                     }
 
                     .image-item.active .img-thumbnail {
