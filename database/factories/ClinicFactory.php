@@ -19,7 +19,7 @@ class ClinicFactory extends Factory
      */
     public function definition(): array
     {
-        $users = User::all(); // Pobiera wszystkie rekordy z tabeli `posts`
+        $users = User::all();
         
         return [
             'name' => $this->faker->name(),
