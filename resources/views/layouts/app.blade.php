@@ -83,7 +83,7 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Kontakt</h4>
                         <p class="lead mb-0">
-                            <a href="mailto:klinika@gmail.com">klinika@gmail.com</a>
+                            <a href="mailto:rejestracja@klinika.pl">rejestracja@klinika.pl</a>
                             <br />
                             Gliwice, Poland
                         </p>
@@ -100,7 +100,7 @@
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">O projekcie</h4>
                         <p class="lead mb-0">
-                            Projekt Klinika został stworzony w celu testowania technologii Laravel, PHP, MySQL, Bootstrap, GitHub, Git, VS Code, Docker..
+                            Projekt Klinika został stworzony w celu testowania technologii Laravel, PHP, MySQL, Bootstrap, GitHub, Git, VS Code, Docker, CSS, JavaScript..
                         </p>
                     </div>
                 </div>
