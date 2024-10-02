@@ -22,6 +22,7 @@ Route::delete('/pacjent/usun/{id}', [PatientController::class, 'delete'])->name(
 Route::get('/zabiegi', [ProcedureController::class, 'index'])->name('procedure.index');
 
 Route::get('/kadra', [TeamController::class, 'index'])->name('team.index');
+Route::post('/kadra', [TeamController::class, 'store'])->name('team.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
