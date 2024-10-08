@@ -10,5 +10,7 @@
 ./vendor/bin/sail up
 ./vendor/bin/sail artisan migrate
 ./vendor/bin/sail artisan db:seed
+./vendor/bin/sail artisan db:seed --class=ProcedureCategoriesSeeder
+./vendor/bin/sail artisan db:seed --class=ProceduresSeeder
 ./vendor/bin/sail artisan storage:link
 ````
