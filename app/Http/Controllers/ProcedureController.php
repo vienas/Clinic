@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProcedureCategory;
+use App\Models\Procedure;
 
 class ProcedureController extends Controller
 
@@ -12,7 +14,10 @@ class ProcedureController extends Controller
      */
     public function index()
     {
-        return view('procedure.index');
+        $procedure_catergories = ProcedureCategory::all();
+        $procedures = Procedure::all();
+        return view('procedure.index', ['procedure_catergories' => $procedure_catergories, 'procedures' => $procedures]);
+
     }
 
     /**
