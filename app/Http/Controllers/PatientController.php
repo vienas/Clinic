@@ -32,7 +32,7 @@ class PatientController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:30',
-            'date' => 'required|date',
+            'date' => 'required|date|after_or_equal:today',
             'phone' => 'required|string|min:9|max:9',
             'mail' => 'nullable|email|max:255',
             'doctor' => 'required|string|max:255',
@@ -47,7 +47,7 @@ class PatientController extends Controller
         $clinic->doctor = $validatedData['doctor'];
     
         $clinic->save();
-    
+        
         return redirect()->route('patient.create')->with('message', 'Twoja wizyta została zarejestrowana, dziękujemy!');
     }
     
