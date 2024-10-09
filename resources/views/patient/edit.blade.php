@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="form-floating mb-3 position-relative">
-                        <input class="form-control" id="doctor-input" name="doctor" type="text" placeholder="Wybór lekarza" value="{{ $clinic->doctor }}" required />
+                        <input class="form-control" id="doctor-input" name="doctor" type="text" placeholder="Wybór lekarza" value="{{ $clinic->doctor }}" required readonly />
                         <label for="doctor-input">Wybór lekarza</label>
                         <select name="doctor" id="doctor-select" class="form-select position-absolute top-0 start-0 w-100 h-100 opacity-0" onchange="updateInput()" required>
                             <option style="display:none">
@@ -63,17 +63,9 @@
                             var input = document.getElementById('doctor-input');
                             input.value = select.options[select.selectedIndex].text;
                         }
-                    
-                        document.addEventListener('DOMContentLoaded', function() {
-                            var select = document.getElementById('doctor-select');
-                            if (select.value) {
-                                var input = document.getElementById('doctor-input');
-                                input.value = select.options[select.selectedIndex].text;
-                            }
-                        });
+
                     </script>
                     
-
                     <div id="success"></div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Zapisz formularz</button>

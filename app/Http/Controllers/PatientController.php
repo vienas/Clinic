@@ -31,11 +31,11 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:30',
+            'name' => 'required|string|max:30|regex:/^\S.*$/',
             'date' => 'required|date|after_or_equal:today',
             'phone' => 'required|string|min:9|max:9',
-            'mail' => 'nullable|email|max:255',
-            'doctor' => 'required|string|max:255',
+            'mail' => 'nullable|email|max:30',
+            'doctor' => 'required|string|max:50',
         ]);
     
         $clinic = new Clinic();
@@ -47,20 +47,28 @@ class PatientController extends Controller
         $clinic->doctor = $validatedData['doctor'];
     
         $clinic->save();
-        
+    
         return redirect()->route('patient.create')->with('message', 'Twoja wizyta została zarejestrowana, dziękujemy!');
     }
     
 
     public function update(int $id, Request $request)
-    {
+    {   
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:30|regex:/^\S.*$/',
+            'date' => 'required|date|after_or_equal:today',
+            'phone' => 'required|string|min:9|max:9',
+            'mail' => 'nullable|email|max:30',
+            'doctor' => 'required|string|max:50',
+        ]);
+
         $clinic = Clinic::findOrFail($id);
         
-        $clinic->name = $request->name;
-        $clinic->date = $request->date;
-        $clinic->phone = $request->phone;
-        $clinic->mail = $request->mail;
-        $clinic->doctor = $request->doctor;
+        $clinic->name = $validatedData['name'];
+        $clinic->date = $validatedData['date'];
+        $clinic->phone = $validatedData['phone'];
+        $clinic->mail = $validatedData['mail'];
+        $clinic->doctor = $validatedData['doctor'];
     
         $clinic->save();
     
