@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Clinic;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Mail\YourMailableClass;
+use App\Mail\RegistrationConfirmation;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -74,9 +74,9 @@ class PatientController extends Controller
     
         $clinic->save();
     
-        return redirect()->route('patient.index')->with('message', 'Zmiany zostały zapisane');
+        Mail::to('mail.com')->send(new RegistrationConfirmation());
 
-        Mail::to('example@example.com')->send(new YourMailableClass());
+        return redirect()->route('patient.index')->with('message', 'Zmiany zostały zapisane');
     }
     
 

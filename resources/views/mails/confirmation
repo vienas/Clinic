@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Potwierdzenie rejestracji</title>
+</head>
+<body>
+    <h1>Witaj!</h1>
+    <p>Dziękujemy za rejestrację. Kliknij poniższy link, aby potwierdzić swój e-mail:</p>
+    <a href="{{ $confirmationLink }}">{{ $confirmationLink }}</a>
+</body>
+</html>
