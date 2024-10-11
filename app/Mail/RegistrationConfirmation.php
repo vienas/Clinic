@@ -5,24 +5,24 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
+use App\Models\Clinic;
 use Illuminate\Queue\SerializesModels;
+
 
 class RegistrationConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $confirmationLink;
+    public $clinic;
 
-    public function __construct($confirmationLink)
+    public function __construct($clinic)
     {
-        $this->confirmationLink = $confirmationLink;
+        $this->clinic = $clinic; 
     }
 
     public function build()
     {
-        return $this->subject('Potwierdzenie rejestracji')
-                    ->view('emails.confirmation');
+        return $this->view('mails.confirmation');
+                    
     }
 }

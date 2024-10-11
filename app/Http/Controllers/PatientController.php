@@ -53,7 +53,6 @@ class PatientController extends Controller
         return redirect()->route('patient.create')->with('message', 'Twoja wizyta została zarejestrowana, dziękujemy!');
     }
     
-
     public function update(int $id, Request $request)
     {   
         $validatedData = $request->validate([
@@ -74,9 +73,12 @@ class PatientController extends Controller
     
         $clinic->save();
     
-        Mail::to('mail.com')->send(new RegistrationConfirmation());
+        if ($clinic->mail) {
+            
+            Mail::to($clinic->mail)->send(new RegistrationConfirmation($clinic));
+        }
 
-        return redirect()->route('patient.index')->with('message', 'Zmiany zostały zapisane');
+        return redirect()->route('patient.index')->with('message', 'Zmiany zostały zapisane. Wysłano e-mail do pacjenta.');
     }
     
 

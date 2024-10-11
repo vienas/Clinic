@@ -83,7 +83,7 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Kontakt</h4>
                         <p class="lead mb-0">
-                            <a href="mailto:rejestracja@klinika.pl">rejestracja@klinika.pl</a>
+                            <a href="mailto:klinikaprojekt@gmail.com">klinikaprojekt@gmail.com</a>
                             <br />
                             Gliwice, Poland
                         </p>
