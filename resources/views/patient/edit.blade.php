@@ -68,7 +68,7 @@
                     
                     <div id="success"></div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Zapisz formularz</button>
+                        <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Zapisz / wyślij e-mail</button>
                     </div>
                 </form>
             </div>

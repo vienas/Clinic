@@ -78,7 +78,7 @@ class PatientController extends Controller
             Mail::to($clinic->mail)->send(new RegistrationConfirmation($clinic));
         }
 
-        return redirect()->route('patient.index')->with('message', 'Zmiany zostały zapisane. Wysłano e-mail do pacjenta.');
+        return redirect()->route('patient.index')->with('message', 'E-mail z potwierdzeniem rejestracji został wysłany do pacjenta.');
     }
     
 
