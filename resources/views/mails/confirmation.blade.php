@@ -14,4 +14,3 @@
     <p><strong>Lekarz:</strong> {{ $clinic->doctor }}</p>
 </body>
 </html>
-

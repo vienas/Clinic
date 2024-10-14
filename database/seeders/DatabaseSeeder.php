@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Clinic;
 use App\Models\Comment;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CommentSeeder::class,
             PostSeeder::class,
+            ClinicSeeder::class,
         ]);
 
     }
