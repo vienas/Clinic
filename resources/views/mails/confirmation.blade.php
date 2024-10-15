@@ -21,7 +21,7 @@
 
         </div>
         <div class="footer">
-            <p>Sport Klinika &copy; {{ \Carbon\Carbon::now()->year }}. Wszystkie prawa zastrzeżone.</p>
+            <p>&copy; {{ \Carbon\Carbon::now()->year }} Sport-Klinika. Wszystkie prawa zastrzeżone.</p>
         </div>
     </div>
 </body>
