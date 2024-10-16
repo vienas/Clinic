@@ -5,8 +5,7 @@ use App\Models\User;
 use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Validated;
-use PHPUnit\TextUI\Configuration\Php;
+
 
 class TeamController extends Controller
 {
@@ -16,15 +15,12 @@ class TeamController extends Controller
     public function index()
     {
 
-        $users = User::all();
-        $posts = Post::all();
-        $comments = Comment::all();
-
+        $users = User::paginate(8);
+        $posts = Post::paginate(5);
 
         return view('team.index', [
             'users' => $users,
             'posts' => $posts,
-            'comments' => $comments,
         ]);
     }
 
@@ -44,7 +40,14 @@ class TeamController extends Controller
     
         $post->save();
     
-        return redirect()->back()->with('success', 'Komentarz został dodany');
+        return redirect()->route('team.edit', ['id' => $validatedData['user_id']])->with('message', 'Twój komentarz został dodany!');
+    }
+
+    public function edit(int $id)
+    {  
+        $users = User::findOrFail($id);
+        return view('team.edit', ['users' => $users]);
+        
     }
     
 }

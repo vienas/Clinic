@@ -23,6 +23,7 @@ Route::get('/zabiegi', [ProcedureController::class, 'index'])->name('procedure.i
 
 Route::get('/kadra', [TeamController::class, 'index'])->name('team.index');
 Route::post('/kadra', [TeamController::class, 'store'])->name('team.store');
+Route::get('/kadra/edytuj/{id}', [TeamController::class, 'edit'])->name('team.edit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
