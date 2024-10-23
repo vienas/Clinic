@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Clinic;
 use App\Models\User;
+use App\Mail\RegistrationConfirmation;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\RegistrationConfirmation;
+
 
 
 
@@ -81,8 +83,14 @@ class PatientController extends Controller
 
         return redirect()->route('patient.index')->with('message', 'E-mail z potwierdzeniem rejestracji został wysłany do pacjenta.');
     }
-    
 
+    public function editmy()
+    {
+        $clinic = Clinic::where('doctor', Auth::user()->name)->paginate(15);
+        $users = User::all();
+        return view('patient.editmy', ['clinic' => $clinic, 'users' => $users ]);
+    }
+    
     public function delete(int $id)
     {
         Clinic::destroy($id);
