@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Clinic;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Mail\RegistrationConfirmation;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\RegistrationConfirmation;
+
 
 
 class PatientController extends Controller
 {
     public function index()
     {
-        $clinic = Clinic::all();
+        $clinic = Clinic::paginate(15);
         return view('patient.index', ['clinic' => $clinic ]);
     }
     

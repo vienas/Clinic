@@ -49,6 +49,11 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div>
+            {{ $clinic->links() }}
+        </div>
+
     </div>
 </section>
 @endsection

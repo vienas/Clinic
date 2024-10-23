@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Post;
-use App\Models\Comment;
 use Illuminate\Http\Request;
 
 
@@ -16,7 +15,7 @@ class TeamController extends Controller
     {
 
         $users = User::paginate(8);
-        $posts = Post::paginate(5);
+        $posts = Post::paginate(4);
 
         return view('team.index', [
             'users' => $users,
