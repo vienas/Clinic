@@ -48,8 +48,8 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30" />
-                        <label for="mail">Adres email (opcjonalnie)</label>
+                        <input class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30" required />
+                        <label for="mail">Adres email</label>
                     </div>
                     
                     <div class="form-floating mb-3 position-relative">

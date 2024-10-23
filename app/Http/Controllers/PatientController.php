@@ -39,7 +39,7 @@ class PatientController extends Controller
             'name' => 'required|string|max:30|regex:/^\S.*$/',
             'date' => 'required|date|after_or_equal:today',
             'phone' => 'required|string|min:9|max:9',
-            'mail' => 'nullable|email|max:30',
+            'mail' => 'required|email|max:30',
             'doctor' => 'required|string|max:50',
         ]);
     
@@ -62,7 +62,7 @@ class PatientController extends Controller
             'name' => 'required|string|max:30|regex:/^\S.*$/',
             'date' => 'required|date|after_or_equal:today',
             'phone' => 'required|string|min:9|max:9',
-            'mail' => 'nullable|email|max:30',
+            'mail' => 'required|email|max:30',
             'doctor' => 'required|string|max:50',
         ]);
 

@@ -42,7 +42,7 @@
                     </div>
                     
                     <div class="form-floating mb-3">
-                        <input value="{{ $clinic->mail }}" class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30"/>
+                        <input value="{{ $clinic->mail }}" class="form-control" id="mail" name="mail" type="email" placeholder="Adres Email" maxlength="30" required/>
                         <label for="mail">Adres email</label>
                     </div>
 
