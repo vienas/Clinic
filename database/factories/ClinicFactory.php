@@ -26,7 +26,7 @@ class ClinicFactory extends Factory
             'date' => $this->faker->dateTimeBetween('now', '+3 years')->format('Y-m-d'),
             'phone' => $this->faker->randomElement([5, 6, 7, 8]) . $this->faker->numerify('########'),
             'mail' => $this->faker->email(),
-            'doctor' => $users->isNotEmpty() ? $this->faker->randomElement($users->pluck('name')->toArray()) : 'Brak lekarza',
+            'doctor_id' => $users->isNotEmpty() ? $this->faker->randomElement($users->pluck('id')->toArray()) : 'Brak lekarza',
         ];
     }
     

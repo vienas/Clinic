@@ -34,7 +34,7 @@
                         <td>{{ \Carbon\Carbon::parse($clinical->date)->format('d-m-Y') }}</td>
                         <td>{{ $clinical->phone }}</td>
                         <td>{{ $clinical->mail }}</td>
-                        <td>{{ $clinical->doctor }}</td>
+                        <td>{{ $clinical->doctor->name }}</td>
                         <td>
                             <div class="d-inline-flex">
                                 <a href="{{ route('patient.edit', ['id' => $clinical->id]) }}" class="btn btn-outline-light me-2">Edytuj</a>

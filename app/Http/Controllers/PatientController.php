@@ -23,7 +23,8 @@ class PatientController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('patient.create', ['users' => $users]);
+        $clinic = Clinic::all();
+        return view('patient.create', ['clinic' => $clinic, 'users' => $users]);
     }
 
     public function edit(int $id)
@@ -40,7 +41,7 @@ class PatientController extends Controller
             'date' => 'required|date|after_or_equal:today',
             'phone' => 'required|string|min:9|max:9',
             'mail' => 'required|email|max:30',
-            'doctor' => 'required|string|max:50',
+            'doctor_id' => 'required',
         ]);
     
         $clinic = new Clinic();
@@ -49,7 +50,7 @@ class PatientController extends Controller
         $clinic->date = $validatedData['date'];
         $clinic->phone = $validatedData['phone'];
         $clinic->mail = $validatedData['mail'];
-        $clinic->doctor = $validatedData['doctor'];
+        $clinic->doctor_id = $validatedData['doctor_id'];
     
         $clinic->save();
     
@@ -63,7 +64,7 @@ class PatientController extends Controller
             'date' => 'required|date|after_or_equal:today',
             'phone' => 'required|string|min:9|max:9',
             'mail' => 'required|email|max:30',
-            'doctor' => 'required|string|max:50',
+            'doctor_id' => 'required',
         ]);
 
         $clinic = Clinic::findOrFail($id);
@@ -72,7 +73,7 @@ class PatientController extends Controller
         $clinic->date = $validatedData['date'];
         $clinic->phone = $validatedData['phone'];
         $clinic->mail = $validatedData['mail'];
-        $clinic->doctor = $validatedData['doctor'];
+        $clinic->doctor_id = $validatedData['doctor_id'];
     
         $clinic->save();
     
@@ -83,10 +84,10 @@ class PatientController extends Controller
 
         return redirect()->route('patient.index')->with('message', 'E-mail z potwierdzeniem rejestracji został wysłany do pacjenta.');
     }
-
+    
     public function editmy()
     {
-        $clinic = Clinic::where('doctor', Auth::user()->name)->paginate(15);
+        $clinic = Clinic::where('doctor_id', Auth::user()->id)->get();
         $users = User::all();
         return view('patient.editmy', ['clinic' => $clinic, 'users' => $users ]);
     }

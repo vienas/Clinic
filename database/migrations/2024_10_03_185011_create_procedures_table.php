@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('procedure_category_id');
- 
             $table->foreign('procedure_category_id')->references('id')->on('procedure_categories');
         });
     }

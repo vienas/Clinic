@@ -47,12 +47,12 @@
                     </div>
 
                     <div class="form-floating mb-3 position-relative">
-                        <input class="form-control" id="doctor-input" name="doctor" type="text" placeholder="Wybór lekarza" value="{{ $clinic->doctor }}" required readonly />
+                        <input class="form-control" id="doctor-input" name="doctor_id" type="text" placeholder="Wybór lekarza" value="{{ $clinic->doctor->name }}" required readonly />
                         <label for="doctor-input">Wybór lekarza</label>
-                        <select name="doctor" id="doctor-select" class="form-select position-absolute top-0 start-0 w-100 h-100 opacity-0" onchange="updateInput()" required>
+                        <select name="doctor_id" id="doctor-select" class="form-select position-absolute top-0 start-0 w-100 h-100 opacity-0" onchange="updateInput()" required>
                             <option style="display:none">
                             @foreach($users as $user)
-                                <option value="{{ $user->name }}" {{ $clinic->doctor == $user->name ? 'selected' : '' }}>{{ $user->name }}</option>
+                                <option value="{{ $user->id }}" {{ $clinic->doctor_id == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -63,7 +63,6 @@
                             var input = document.getElementById('doctor-input');
                             input.value = select.options[select.selectedIndex].text;
                         }
-
                     </script>
                     
                     <div id="success"></div>

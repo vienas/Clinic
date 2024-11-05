@@ -26,32 +26,33 @@
                     <th scope="col">Akcje</th>
                 </tr>
             </thead>
+
             <tbody>
-                @foreach ($clinic as $clinical)
+                @foreach ($clinic as $clinics)
                     <tr>
-                        <th scope="row">{{ $clinical->id }}</th>
-                        <td>{{ $clinical->name }}</td>
-                        <td>{{ \Carbon\Carbon::parse($clinical->date)->format('d-m-Y') }}</td>
-                        <td>{{ $clinical->phone }}</td>
-                        <td>{{ $clinical->mail }}</td>
-                        <td>{{ Auth::user()->name }}</td>
-                        <td>
-                            <div class="d-inline-flex">
-                                <a href="{{ route('patient.edit', ['id' => $clinical->id]) }}" class="btn btn-outline-light me-2">Edytuj</a>
-                                <form method="POST" action="{{ route('patient.delete', ['id' => $clinical->id]) }}">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger">Usuń</button>
-                                </form>
-                            </div>
-                        </td>
+                        <th scope="row">{{ $clinics->id }}</th>
+                        <td>{{ $clinics->name }}</td>
+                        <td>{{ \Carbon\Carbon::parse($clinics->date)->format('d-m-Y') }}</td>
+                        <td>{{ $clinics->phone }}</td>
+                        <td>{{ $clinics->mail }}</td>
+                        <td>{{ $clinics->doctor->name }}</td>
+                            <td>
+                                <div class="d-inline-flex">
+                                    <a href="{{ route('patient.edit', ['id' => $clinics->id]) }}" class="btn btn-outline-light me-2">Edytuj</a>
+                                    <form method="POST" action="{{ route('patient.delete', ['id' => $clinics->id]) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger">Usuń</button>
+                                    </form>
+                                </div>
+                            </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
 
         <div>
-            {{ $clinic->links() }}
+            {{-- {{ $clinic->links() }} --}}
         </div>
 
     </div>

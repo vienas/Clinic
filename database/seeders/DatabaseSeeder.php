@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             CommentSeeder::class,
             PostSeeder::class,
             ClinicSeeder::class,
+            ProcedureCategoriesSeeder::class,
+            ProceduresSeeder::class,
         ]);
 
     }

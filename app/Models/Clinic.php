@@ -11,9 +11,13 @@ class Clinic extends Model
     use HasFactory;
     protected $table = 'clinic';
 
-        public function post() {
+        public function post() 
         {
             return $this->hasMany(Post::class);
         }
-    }
+
+        public function doctor()
+        {
+            return $this->belongsTo(User::class);
+        }
 }

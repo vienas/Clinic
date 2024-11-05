@@ -17,7 +17,8 @@ return new class extends Migration
             $table->date('date');
             $table->integer('phone');
             $table->string('mail')->nullable();
-            $table->string('doctor');
+            $table->unsignedBigInteger('doctor_id');
+            $table->foreign('doctor_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
