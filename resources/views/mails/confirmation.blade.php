@@ -15,7 +15,7 @@
             <p><strong><span style="background-color: #adffb8;">{{ \Carbon\Carbon::parse($clinic->date)->format('d-m-Y') }}</span></strong></p>
 
             <h3>Lekarz prowadzący:</h3>
-            <p><strong><span style="background-color: #adffb8;">{{ $clinic->doctor }}</span></strong></p>
+            <p><strong><span style="background-color: #adffb8;">{{ $clinic->doctor->name }}</span></strong></p>
 
             <p>Dziękujemy za skorzystanie z naszej rejestracji online. Czekamy na Ciebie w naszej klinice.</p>
 
