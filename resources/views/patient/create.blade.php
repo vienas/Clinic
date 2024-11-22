@@ -12,6 +12,13 @@
                 <span aria-hidden="true"></span>
             </button>
         </div>
+        @elseif (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session()->get('error') }}
+            <button type="button" class="btn-close text-danger" data-bs-dismiss="alert" aria-label="close">
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
         @endif
 
         <h2 class="masthead page-section-heading text-center text-uppercase text-secondary mb-0" style="padding-top: 5rem;">E-rejestracja</h2>

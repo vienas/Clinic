@@ -56,7 +56,7 @@
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <script>
                         function updateInput() {
                             var select = document.getElementById('doctor-select');

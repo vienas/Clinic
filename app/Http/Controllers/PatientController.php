@@ -44,6 +44,15 @@ class PatientController extends Controller
             'doctor_id' => 'required',
         ]);
     
+        $clinic = Clinic::all();
+        $count = Clinic::where('doctor_id', $validatedData['doctor_id'])
+                        ->where('date', $validatedData['date'])
+                        ->count();
+
+        if ($count > 0) {
+            return redirect()->route('patient.create')->with('error', 'Ta data jest już zajęta. Wybierz inną datę lub lekarza.');
+        }
+
         $clinic = new Clinic();
     
         $clinic->name = $validatedData['name'];
@@ -51,9 +60,9 @@ class PatientController extends Controller
         $clinic->phone = $validatedData['phone'];
         $clinic->mail = $validatedData['mail'];
         $clinic->doctor_id = $validatedData['doctor_id'];
-    
+
         $clinic->save();
-    
+        
         return redirect()->route('patient.create')->with('message', 'Twoja wizyta została zarejestrowana, dziękujemy!');
     }
     

@@ -36,16 +36,16 @@
                         <td>{{ $clinics->phone }}</td>
                         <td>{{ $clinics->mail }}</td>
                         <td>{{ $clinics->doctor->name }}</td>
-                            <td>
-                                <div class="d-inline-flex">
-                                    <a href="{{ route('patient.edit', ['id' => $clinics->id]) }}" class="btn btn-outline-light me-2">Edytuj</a>
-                                    <form method="POST" action="{{ route('patient.delete', ['id' => $clinics->id]) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger">Usuń</button>
-                                    </form>
-                                </div>
-                            </td>
+                        <td>
+                            <div class="d-inline-flex">
+                                <a href="{{ route('patient.edit', ['id' => $clinics->id]) }}" class="btn btn-outline-light me-2">Edytuj</a>
+                                <form method="POST" action="{{ route('patient.delete', ['id' => $clinics->id]) }}">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">Usuń</button>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
