@@ -1,18 +1,22 @@
 <?php
-
 uses(
     Tests\DuskTestCase::class,
     // Illuminate\Foundation\Testing\DatabaseMigrations::class,
 )->in('Browser');
-
 uses(
     Tests\DuskTestCase::class,
     // Illuminate\Foundation\Testing\DatabaseMigrations::class,
 )->in('Browser');
-
+uses(
+    Tests\DuskTestCase::class,
+    // Illuminate\Foundation\Testing\DatabaseMigrations::class,
+)->in('Browser');
+uses(
+    Tests\DuskTestCase::class,
+    // Illuminate\Foundation\Testing\DatabaseMigrations::class,
+)->in('Browser');
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -23,9 +27,7 @@ use Tests\TestCase;
 | need to change it using the "uses()" function to bind a different classes or traits.
 |
 */
-
 uses(TestCase::class, RefreshDatabase::class)->in('Feature');
-
 /*
 |--------------------------------------------------------------------------
 | Expectations
@@ -36,11 +38,9 @@ uses(TestCase::class, RefreshDatabase::class)->in('Feature');
 | to assert different things. Of course, you may extend the Expectation API at any time.
 |
 */
-
 expect()->extend('toBeOne', function () {
     return $this->toBe(1);
 });
-
 /*
 |--------------------------------------------------------------------------
 | Functions
@@ -51,7 +51,6 @@ expect()->extend('toBeOne', function () {
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
-
 function something()
 {
     // ..

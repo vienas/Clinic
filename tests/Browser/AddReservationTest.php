@@ -22,9 +22,8 @@ class AddReservationTest extends DuskTestCase
  
         $this->browse(function (Browser $browser) {
             $browser->visit('/pacjent/dodaj')
-            ->assertSee('E-rejestracja');
-
-
+            ->assertPathIs('/pacjent/dodaj')
+            ->assertSee('E-REJESTRACJA');
         });
     }
 }
