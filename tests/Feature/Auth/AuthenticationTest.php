@@ -2,6 +2,8 @@
 
 use App\Models\User;
 
+use function Laravel\Prompts\pause;
+
 test('login screen can be rendered', function () {
     $response = $this->get('/login');
 
