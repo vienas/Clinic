@@ -25,6 +25,7 @@ php artisan db:seed --class=ProceduresSeeder
 
 ## Run Test
 ````
+php artisan test
 php artisan dusk
 ````
 
@@ -46,5 +47,6 @@ php artisan dusk
 
 ## Run Test
 ````
+./vendor/bin/sail artisan test
 ./vendor/bin/sail artisan dusk
 ````
