@@ -10,8 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 
-
-
 class PatientController extends Controller
 {
     public function index()
@@ -107,5 +105,17 @@ class PatientController extends Controller
 
         return redirect()->route('patient.index')->with('message', 'Poprawnie usunięto z bazy');
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('name');
+    
+        $searchResults = Clinic::where('name', 'like', "%$query%")
+            ->orWhere('name', 'like', "%$query%")
+            ->paginate(10);
+    
+        return view('patient.search', compact('searchResults', 'query'));
+    }
+    
 
 }

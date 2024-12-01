@@ -18,6 +18,7 @@ Route::post('/pacjent/zapisz', [PatientController::class, 'store'])->name('patie
 Route::put('/pacjent/zmien/{id}', [PatientController::class, 'update'])->name('patient.update');
 Route::delete('/pacjent/usun/{id}', [PatientController::class, 'delete'])->name('patient.delete');
 Route::get('/pacjent/edytujmoje', [PatientController::class, 'editmy'])->name('patient.editmy');
+Route::get('/pacjent/wyszukaj', [PatientController::class, 'search'])->name('patient.search');
 
 Route::get('/zabiegi', [ProcedureController::class, 'index'])->name('procedure.index');
 
